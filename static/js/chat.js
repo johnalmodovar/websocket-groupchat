@@ -57,12 +57,16 @@ ws.onclose = function (evt) {
 
 
 /** send message when button pushed. */
-//TODO: when a user types /jokes => convert data into joke type
 $("form").submit(function (evt) {
   evt.preventDefault();
-
-  let data = { type: "chat", text: $("#m").val() };
-  ws.send(JSON.stringify(data));
-
+  let $text = $("#m").val();
+  if ($text === "/joke") {
+    let data = { type: "joke", text: $("#m").val() };
+    console.log("data########=", data);
+    ws.send(JSON.stringify(data));
+  } else {
+    let data = { type: "chat", text: $("#m").val() };
+    ws.send(JSON.stringify(data));
+  }
   $("#m").val("");
 });

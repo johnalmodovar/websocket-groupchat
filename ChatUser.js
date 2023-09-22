@@ -77,7 +77,7 @@ class ChatUser {
 
     if (msg.type === "join") this.handleJoin(msg.name);
     else if (msg.type === "chat") this.handleChat(msg.text);
-    //else if (msg.type === "joke") this.handleJoke(msg.text);
+    else if (msg.type === "joke") this.handleJoke();
     else throw new Error(`bad message: ${msg.type}`);
   }
 
@@ -88,6 +88,19 @@ class ChatUser {
    * @example<code>
    * - {type: "joke", text: "insert joke here" }
    */
+
+  handleJoke() {
+    const joke = "What do you call a fish without eyes? Fsh.";
+    console.log("asdfsdfsasdf");
+    this.send({
+      type: "joke",
+      text: joke
+    });
+    console.log("joke hereeeeeeee", joke);
+
+  }
+
+
   /** Connection was closed: leave room, announce exit to others. */
 
   handleClose() {
