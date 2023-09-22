@@ -32,6 +32,8 @@ ws.onmessage = function (evt) {
     item = $(`<li><i>${msg.text}</i></li>`);
   } else if (msg.type === "chat") {
     item = $(`<li><b>${msg.name}: </b>${msg.text}</li>`);
+  } else if (msg.type === "joke") {
+    item = $(`<li><b>Joke:</b> ${msg.text}</li>`);
   } else {
     return console.error(`bad message: ${msg}`);
   }
@@ -55,7 +57,7 @@ ws.onclose = function (evt) {
 
 
 /** send message when button pushed. */
-
+//TODO: when a user types /jokes => convert data into joke type
 $("form").submit(function (evt) {
   evt.preventDefault();
 
