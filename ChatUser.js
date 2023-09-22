@@ -77,9 +77,17 @@ class ChatUser {
 
     if (msg.type === "join") this.handleJoin(msg.name);
     else if (msg.type === "chat") this.handleChat(msg.text);
+    //else if (msg.type === "joke") this.handleJoke(msg.text);
     else throw new Error(`bad message: ${msg.type}`);
   }
 
+  /** Handle joke requests from client:
+   *
+   * @param jsonData { joke } raw joke data
+   *
+   * @example<code>
+   * - {type: "joke", text: "insert joke here" }
+   */
   /** Connection was closed: leave room, announce exit to others. */
 
   handleClose() {
