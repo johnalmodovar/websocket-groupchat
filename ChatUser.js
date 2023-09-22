@@ -92,12 +92,12 @@ class ChatUser {
   handleJoke() {
     const joke = "What do you call a fish without eyes? Fsh.";
     console.log("asdfsdfsasdf");
-    this.send({
+    const data = {
       type: "joke",
       text: joke
-    });
-    console.log("joke hereeeeeeee", joke);
-
+    };
+    console.log("hello your data is this: ", data);
+    this._send(JSON.stringify(data));
   }
 
 
